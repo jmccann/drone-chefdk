@@ -10,7 +10,12 @@ RUN apt-get update
 RUN apt-get install -y chefdk
 RUN chef gem install chef-sugar
 
+RUN locale-gen en_US.UTF-8
+
 ENV PATH="/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ENV GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
 ENV GEM_HOME="/root/.chefdk/gem/ruby/2.1.0"
 ENV GEM_PATH="/root/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+ENV LC_ALL="en_US.UTF-8"
+ENV LANG="en_US.UTF-8"
+ENV LANGUAGE="en_US.UTF-8"
