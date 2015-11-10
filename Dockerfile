@@ -10,8 +10,9 @@ RUN apt-get install -y curl git apt-transport-https software-properties-common
 
 RUN curl -sSL "https://packagecloud.io/gpg.key" | apt-key add -
 RUN apt-add-repository -y "deb https://packagecloud.io/chef/stable/ubuntu/ trusty main"
-RUN apt-get update
-RUN apt-get install -y chefdk=0.10.0-1
+RUN apt-get update && apt-get install -y chefdk=0.10.0-1 \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8
 
