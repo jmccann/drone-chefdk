@@ -12,7 +12,6 @@ RUN curl -sSL "https://packagecloud.io/gpg.key" | apt-key add -
 RUN apt-add-repository -y "deb https://packagecloud.io/chef/stable/ubuntu/ trusty main"
 RUN apt-get update
 RUN apt-get install -y chefdk=0.10.0-1
-RUN chef gem install chef-sugar
 
 RUN locale-gen en_US.UTF-8
 
