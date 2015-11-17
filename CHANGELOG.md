@@ -1,6 +1,10 @@
-0.10.0.3
+0.10.0.4
 ========
 * Add docker and kitchen-docker
+
+0.10.0.3
+========
+* Failed at merging the docker stuff above ^^
 
 0.10.0.2
 ========
