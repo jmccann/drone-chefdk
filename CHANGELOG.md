@@ -1,3 +1,7 @@
+0.10.0.3
+========
+* Add docker and kitchen-docker
+
 0.10.0.2
 ========
 * Remove chef-sugar gem
