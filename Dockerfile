@@ -11,7 +11,7 @@ RUN apt-get install -y curl git apt-transport-https software-properties-common
 RUN curl -sSL "https://packagecloud.io/gpg.key" | apt-key add -
 RUN apt-add-repository -y "deb https://packagecloud.io/chef/stable/ubuntu/ trusty main"
 RUN apt-get update && apt-get install -y \
-  chefdk=0.10.0-1 \
+  chefdk=0.12.0-1 \
   docker.io \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
