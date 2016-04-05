@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 && rm -rf /var/lib/apt/lists/*
 
 RUN /opt/chefdk/bin/chef gem install kitchen-docker -v 2.3.0
+RUN /opt/chefdk/bin/chef gem install kitchen-openstack -v 3.0.0
 
 RUN locale-gen en_US.UTF-8
 
