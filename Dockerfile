@@ -11,7 +11,7 @@ RUN apt-get install -y curl git apt-transport-https software-properties-common
 RUN curl -sSL "https://downloads.chef.io/packages-chef-io-public.key" | apt-key add -
 RUN apt-add-repository -y "deb https://packages.chef.io/stable-apt trusty main"
 RUN apt-get update && apt-get install -y \
-  chefdk=0.13.21-1 \
+  chefdk=0.14.25-1 \
   docker.io \
   build-essential \
 && /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-docker -v 2.4.0 \
