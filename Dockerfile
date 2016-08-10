@@ -5,8 +5,11 @@
 FROM ubuntu
 MAINTAINER Jacob McCann <jmccann.git@gmail.com>
 
-RUN apt-get update
-RUN apt-get install -y curl git apt-transport-https software-properties-common
+RUN apt-get update && \
+    apt-get install -y curl git apt-transport-https software-properties-common && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN curl -sSL "https://downloads.chef.io/packages-chef-io-public.key" | apt-key add -
 RUN apt-add-repository -y "deb https://packages.chef.io/stable-apt trusty main"
@@ -20,9 +23,6 @@ RUN apt-get update && apt-get install -y \
 && apt-get autoremove -y \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
-
-# RUN /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-docker -v 2.4.0
-# RUN /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-openstack -v 3.0.0
 
 RUN locale-gen en_US.UTF-8
 
