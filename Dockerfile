@@ -16,10 +16,10 @@ RUN apt-add-repository -y "deb https://packages.chef.io/stable-apt trusty main"
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 RUN echo 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y \
-  chefdk=0.17.17-1 \
+  chefdk=0.18.26-1 \
   docker-engine=1.11.2-0~xenial \
   build-essential \
-&& /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-docker -v 2.5.0 \
+&& /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-docker -v 2.6.0 \
 && /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-openstack -v 3.1.0 \
 && apt-get remove -y build-essential \
 && apt-get autoremove -y \
@@ -29,10 +29,10 @@ RUN apt-get update && apt-get install -y \
 RUN locale-gen en_US.UTF-8
 
 # Set ChefDK paths
-ENV PATH="/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ENV GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
-ENV GEM_HOME="/root/.chefdk/gem/ruby/2.1.0"
-ENV GEM_PATH="/root/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+ENV PATH="/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.3.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chefdk/gitbin"
+ENV GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
+ENV GEM_HOME="/root/.chefdk/gem/ruby/2.3.0"
+ENV GEM_PATH="/root/.chefdk/gem/ruby/2.3.0:/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
 
 # Set locale
 ENV LC_ALL en_US.UTF-8
