@@ -16,7 +16,7 @@ RUN apt-add-repository -y "deb https://packages.chef.io/stable-apt trusty main"
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 RUN echo 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y \
-  chefdk=0.18.30-1 \
+  chefdk=0.19.6-1 \
   docker-engine=1.11.2-0~xenial \
   build-essential \
 && /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-docker -v 2.6.0 \
