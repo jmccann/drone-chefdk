@@ -16,20 +16,15 @@ RUN apt-add-repository -y "deb https://packages.chef.io/stable-apt trusty main"
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 RUN echo 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y \
-  chefdk=1.2.22-1 \
+  chefdk=1.3.43-1 \
   docker.io=1.12.6-0ubuntu1~16.04.1 \
   build-essential \
 && /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-docker -v 2.6.0 \
 && /opt/chefdk/bin/chef gem install --no-ri --no-rdoc kitchen-openstack -v 3.1.0 \
-# Temp to address bogus warnings
-&& /opt/chefdk/bin/chef gem install --no-ri --no-rdoc berkshelf -v 5.6.3 \
 && apt-get remove -y build-essential \
 && apt-get autoremove -y \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
-
-# Temp to address bogus warnings
-RUN sed -i -e 's/5.6.0/5.6.3/g' /opt/chefdk/bin/berks
 
 RUN locale-gen en_US.UTF-8
 
