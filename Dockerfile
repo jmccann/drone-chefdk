@@ -2,7 +2,7 @@
 #
 #     docker build -t jmccann/drone-chefdk .
 
-FROM chef/chefdk:1.3.48
+FROM chef/chefdk:1.4.3
 MAINTAINER Jacob McCann <jmccann.git@gmail.com>
 
 RUN apt-get update && apt-get install -y \
